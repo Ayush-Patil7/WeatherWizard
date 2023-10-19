@@ -90,3 +90,11 @@ body {
 .wind {
     font-size: 23px;
 }
+
+.error {
+    text-align: left;
+    color: red;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: none;
+}

@@ -15,6 +15,9 @@
             <input type="text" placeholder="Enter City Name">
             <button><img src="/WeatherWizard/WeatherIconPng/search.png" alt="Weather"></button>
         </div>
+        <div class="error">
+            <p>Invalid City Name</p>
+        </div>
         <div class="weather">
             <img src="/WeatherWizard/WeatherIconPng/cloud.png" class="icon" alt="weather">
             <h1 class="celcius">32°c</h1>
@@ -45,6 +48,11 @@
 
         async function getWeather(city) {
             var res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6ce76b4bb2b9bcc4e52e47b6c7ee39d0&units=metric`);
+            if (res.status == 404) {
+                document.querySelector('.error').style.display = "block";
+            } else {
+                document.querySelector('.error').style.display = "none";
+            }
             var data = await res.json();
             console.log(data);
             document.querySelector('.celcius').innerHTML = Math.round(data.main.temp) + "°c";
