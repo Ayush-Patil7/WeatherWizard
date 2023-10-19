@@ -12,10 +12,10 @@ body {
     width: 450px;
     background: linear-gradient(130deg, rgb(43, 99, 218), rgb(22, 22, 220));
     color: white;
-    padding: 20px;
+    padding: 30px;
     margin: 100px auto;
     border-radius: 10px;
-    align-items: center;
+    text-align: center;
 }
 
 .search {
