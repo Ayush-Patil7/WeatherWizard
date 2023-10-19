@@ -17,20 +17,20 @@
         </div>
         <div class="weather">
             <img src="/WeatherWizard/WeatherIconPng/clear.png" class="icon" alt="weather">
-            <h1>32°c</h1>
-            <h2>Pune</h2>
+            <h1 class="celcius">32°c</h1>
+            <h2 class="city">Pune</h2>
             <div class="detail">
                 <div class="col">
                     <img src="/WeatherWizard/WeatherIconPng/humidity.png" alt="">
                     <div class="humidity">
-                        <p>20%</p>
+                        <p class="humidityP">20%</p>
                         <p>Humidity</p>
                     </div>
                 </div>
                 <div class="col">
                     <img src="/WeatherWizard/WeatherIconPng/wind.png" alt="">
                     <div class="wind">
-                        <p>20k/h</p>
+                        <p class="windS">20k/h</p>
                         <p>Wind</p>
                     </div>
                 </div>
@@ -40,9 +40,13 @@
 
     <script>
         async function getWeather() {
-            var res = await fetch('https://api.openweathermap.org/data/2.5/weather?q=pune&appid=6ce76b4bb2b9bcc4e52e47b6c7ee39d0&units=matric');
+            var res = await fetch('https://api.openweathermap.org/data/2.5/weather?q=pune,27,+91&appid=6ce76b4bb2b9bcc4e52e47b6c7ee39d0&units=metric');
             var data = await res.json();
             console.log(data);
+            document.querySelector('.celcius').innerHTML = Math.round(data.main.temp) + "°c";
+            document.querySelector('.city').innerHTML = data.name;
+            document.querySelector('.humidityP').innerHTML = Math.round(data.main.humidity) + "%";
+            document.querySelector('.windS').innerHTML = Math.round(data.wind.speed) + "km/h";
         }
         getWeather();
     </script>
