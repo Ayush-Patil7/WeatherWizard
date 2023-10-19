@@ -37,6 +37,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        async function getWeather() {
+            var res = await fetch('https://api.openweathermap.org/data/2.5/weather?q=pune&appid=6ce76b4bb2b9bcc4e52e47b6c7ee39d0&units=matric');
+            var data = await res.json();
+            console.log(data);
+        }
+        getWeather();
+    </script>
 </body>
 
 </html>
