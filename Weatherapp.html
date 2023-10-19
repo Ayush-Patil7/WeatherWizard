@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./WeatherStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>WeatherWizard</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
         const image = document.querySelector('.icon');
 
         async function getWeather(city) {
-            var res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6ce76b4bb2b9bcc4e52e47b6c7ee39d0&units=metric`);
+            var res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6ce76b4bb2b9bcc4e52e47b6c7ee39d0&units=metric`); /*API key*/
             if (res.status == 404) {
                 document.querySelector('.error').style.display = "block";
             } else {
